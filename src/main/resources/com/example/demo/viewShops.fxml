@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.layout.AnchorPane?>
+
+<?import javafx.scene.control.Button?>
+<AnchorPane xmlns:fx="http://javafx.com/fxml" fx:controller="com.example.demo.Controllers.ViewShopsController">
+    <Button layoutX="500.0" layoutY="350.0" mnemonicParsing="false" onAction="#handleBack" text="Back" />
+    <TableView fx:id="shopsTable" layoutX="14.0" layoutY="14.0" prefHeight="200.0" prefWidth="400.0">
+        <columns>
+            <TableColumn fx:id="shopIdColumn" text="Shop ID" />
+            <TableColumn fx:id="shopNameColumn" text="Shop Name" />
+            <TableColumn fx:id="addressColumn" text="Address" />
+        </columns>
+    </TableView>
+</AnchorPane>

@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.layout.AnchorPane?>
+
+<?import javafx.scene.control.Button?>
+<AnchorPane xmlns:fx="http://javafx.com/fxml" fx:controller="com.example.demo.Controllers.ViewCashiersController">
+    <Button layoutX="500.0" layoutY="350.0" mnemonicParsing="false" onAction="#handleBack" text="Back" />
+    <TableView fx:id="cashiersTable" layoutX="14.0" layoutY="14.0" prefHeight="200.0" prefWidth="600.0">
+        <columns>
+            <TableColumn fx:id="cashierIdColumn" prefWidth="75.0" text="Cashier ID" />
+            <TableColumn fx:id="cashierNameColumn" prefWidth="150.0" text="Cashier Name" />
+            <TableColumn fx:id="passwordColumn" prefWidth="150.0" text="Password" />
+            <TableColumn fx:id="shopIdColumn" prefWidth="75.0" text="Shop ID" />
+        </columns>
+    </TableView>
+</AnchorPane>

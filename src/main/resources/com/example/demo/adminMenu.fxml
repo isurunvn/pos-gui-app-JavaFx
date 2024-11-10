@@ -2,21 +2,14 @@
 
 <?import javafx.geometry.Insets?>
 <?import javafx.scene.control.Button?>
-<?import javafx.scene.control.ButtonBar?>
-<?import javafx.scene.control.Label?>
-<?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.VBox?>
 
-<AnchorPane xmlns="http://javafx.com/javafx/22" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.demo.Controllers.MenuController">
+
+<VBox xmlns="http://javafx.com/javafx/22" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.demo.Controllers.MenuController">
    <children>
-      <ButtonBar layoutX="172.0" layoutY="14.0" prefHeight="26.0" prefWidth="187.0">
-        <buttons>
-             <Label fx:id="userNameLabel" />
-             <Button fx:id="logOutButton" onAction="#handleLogout" text="Log out" />
-        </buttons>
-      </ButtonBar>
-       <Label layoutX="20.0" layoutY="18.0" text="Admin Menu:" />
-      <VBox layoutX="-1.0" layoutY="48.0" prefHeight="321.0" prefWidth="375.0" spacing="20">
+       <!-- Include the header bar -->
+       <fx:include source="adminHeader.fxml" />
+      <VBox prefHeight="321.0" prefWidth="375.0" spacing="20">
           <Button alignment="TOP_LEFT" onAction="#handleAddShop" prefHeight="26.0" prefWidth="102.0" text="1.Add Shop" />
           <Button alignment="TOP_LEFT" onAction="#handleViewShops" text="2.View Shops" />
           <Button alignment="TOP_LEFT" onAction="#handleRemoveShop" prefHeight="26.0" prefWidth="102.0" text="3.Remove Shop" />
@@ -26,12 +19,12 @@
          <Button alignment="TOP_LEFT" onAction="#handleAddCashier" prefHeight="26.0" prefWidth="102.0" text="7.Add Cashier" />
          <Button alignment="TOP_LEFT" onAction="#handleViewCashiers" prefHeight="26.0" prefWidth="102.0" text="8.View Cashiers" />
          <Button alignment="TOP_LEFT" onAction="#handleRemoveCashier" prefHeight="26.0" prefWidth="102.0" text="9.Remove Cashier" />
-         <Button alignment="TOP_LEFT" onAction="#handleViewOrders" prefHeight="26.0" prefWidth="102.0" text="10.View Orders" />
+         <Button fx:id="viewOrderButton" alignment="TOP_LEFT" onAction="#handleViewOrders" prefHeight="26.0" prefWidth="102.0" text="10.View Orders" />
           <Button alignment="TOP_LEFT" onAction="#handleViewOrderByID" prefHeight="26.0" prefWidth="102.0" text="11.View Order By ID" />
-          <Button onAction="#handleRemoveOrder" text="12.Delete Order"/>
+          <Button onAction="#handleRemoveOrder" text="12.Delete Order" />
           <padding>
             <Insets left="20.0" top="10.0" />
          </padding>
       </VBox>
    </children>
-</AnchorPane>
+</VBox>

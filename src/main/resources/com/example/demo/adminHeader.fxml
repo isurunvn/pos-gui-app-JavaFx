@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.HBox?>
+
+<HBox xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/22" fx:controller="com.example.demo.Controllers.AdminHeaderController" alignment="CENTER_LEFT" spacing="20" style="-fx-background-color: white; -fx-border-color: #eee; -fx-border-width: 0 0 1 0;">
+    <padding><Insets bottom="10" left="30" right="30" top="10" /></padding>
+
+    <!-- Logo and Company Name -->
+    <HBox alignment="CENTER_LEFT" spacing="10" HBox.hgrow="ALWAYS">
+        <ImageView fitHeight="30" fitWidth="30">
+<!--            <Image url="@/images/logo.png"/>-->
+        </ImageView>
+        <Label style="-fx-font-size: 20; -fx-font-weight: bold;" text="Nexus" />
+        <Label style="-fx-font-size: 14; -fx-background-color: #28a745; -fx-background-radius: 5;" text="Keells Super" textFill="WHITE">
+            <padding>
+                <Insets bottom="2.0" left="5.0" right="5.0" top="2.0" />
+            </padding>
+            <HBox.margin>
+                <Insets left="50.0" />
+            </HBox.margin>
+        </Label>
+    </HBox>
+
+    <!-- Right Side Header Items -->
+    <Label style="-fx-font-weight: bold;" text="Shop : " />
+<!--    <Label fx:id="shopName" text="ABC shop" />-->
+
+    <Label style="-fx-font-weight: bold;" text="Admin : " />
+    <Label fx:id="userName" text="Chathumini" />
+    <Button fx:id="logoutButton" onAction="#handleLogout" style="-fx-background-color: #6c5ce7; -fx-text-fill: white;" text="Logout" />
+</HBox>

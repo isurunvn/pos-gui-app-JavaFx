@@ -102,10 +102,18 @@ public class OrderDAO {
                 int orderId = resultSet.getInt("OrderID");
                 int cashierId = resultSet.getInt("CashierID");
                 double total = resultSet.getDouble("Total");
+                String cashierName = null;
+                try (Statement cashierStatement = connection.createStatement();
+                     ResultSet cashierResult = cashierStatement.executeQuery("SELECT CashierName FROM cashier WHERE CashierID = " + cashierId)) {
+                    if (cashierResult.next()) {
+                        cashierName = cashierResult.getString("CashierName");
+                    }
+                }
 
                 Order order = new Order(cashierId);
                 order.setOrderId(orderId);
                 order.setTotal(total);
+                order.setCashierName(cashierName);
                 orders.add(order);
 
 //                Order order = getOrderById(orderId);

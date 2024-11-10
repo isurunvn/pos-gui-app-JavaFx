@@ -6,6 +6,7 @@ import java.util.List;
 public class Order {
     private int orderId;
     private int cashierId;
+    private String cashierName;
     private List<OrderItem> items;
     private double total;
 
@@ -36,6 +37,10 @@ public class Order {
     public int getOrderId() { return orderId; }
     public void setOrderId(int orderId) { this.orderId = orderId; }
     public int getCashierId() { return cashierId; }
+
+    public void setCashierName(String cashierName) { this.cashierName = cashierName; }
+    public String getCashierName() { return cashierName; }
+
     public List<OrderItem> getItems() { return items; }
 
     public double getTotal() { return total; }

@@ -1,34 +1,120 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
 <?import javafx.scene.control.TableColumn?>
 <?import javafx.scene.control.TableView?>
-<?import javafx.scene.layout.GridPane?>
-
+<?import javafx.scene.control.TextField?>
 <?import javafx.scene.control.cell.PropertyValueFactory?>
-<?import javafx.scene.control.Button?>
-<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.VBox?>
-<VBox xmlns:fx="http://javafx.com/fxml" fx:controller="com.example.demo.Controllers.ViewOrdersController">
-    <padding><Insets top="10" right="10" bottom="10" left="10"/></padding>
-    <Button layoutX="500.0" layoutY="350.0" mnemonicParsing="false" onAction="#handleBack" text="Back" />
-    <TableView fx:id="ordersTable" GridPane.rowIndex="0" GridPane.columnIndex="0" GridPane.columnSpan="2">
-        <columns>
-            <TableColumn text="Order ID" fx:id="orderIdColumn">
-                <cellValueFactory>
-                    <PropertyValueFactory property="orderId"/>
-                </cellValueFactory>
-            </TableColumn>
-            <TableColumn text="Cashier ID" fx:id="cashierIdColumn">
-                <cellValueFactory>
-                    <PropertyValueFactory property="cashierId"/>
-                </cellValueFactory>
-            </TableColumn>
-            <TableColumn text="Total" fx:id="totalColumn">
-                <cellValueFactory>
-                    <PropertyValueFactory property="total"/>
-                </cellValueFactory>
-            </TableColumn>
-        </columns>
-    </TableView>
+<?import javafx.scene.text.Font?>
+
+<VBox xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/22" fx:controller="com.example.demo.Controllers.ViewOrdersController">
+
+    <!-- Include the header bar -->
+    <fx:include source="adminHeader.fxml"/>
+
+    <!-- Main Content Area -->
+    <HBox VBox.vgrow="ALWAYS">
+        <!-- Left Sidebar -->
+        <VBox prefWidth="250" spacing="10" style="-fx-background-color: #f8f9fa;" styleClass="sidebar">
+            <padding><Insets bottom="20" left="20" right="20" top="20" /></padding>
+
+            <Label style="-fx-font-size: 16; -fx-font-weight: bold;" text="Point of sale" />
+
+            <!-- Navigation Items -->
+            <VBox spacing="5">
+                <Button prefWidth="200" style="-fx-alignment: CENTER_LEFT; -fx-background-color: transparent;" styleClass="nav-button" text="Products">
+                    <graphic>
+                        <ImageView fitHeight="20" fitWidth="20">
+<!--                            <Image url="@/images/products-icon.png"/>-->
+                        </ImageView>
+                    </graphic>
+                </Button>
+
+                <Button prefWidth="200" style="-fx-alignment: CENTER_LEFT; -fx-background-color: #6c5ce7; -fx-text-fill: white;" styleClass="nav-button" text="Orders">
+                    <graphic>
+                        <ImageView fitHeight="20" fitWidth="20">
+<!--                            <Image url="@/images/orders-icon.png"/>-->
+                        </ImageView>
+                    </graphic>
+                </Button>
+
+                <Button prefWidth="200" style="-fx-alignment: CENTER_LEFT; -fx-background-color: transparent;" styleClass="nav-button" text="Cashiers">
+                    <graphic>
+                        <ImageView fitHeight="20" fitWidth="20">
+<!--                            <Image url="@/images/cashiers-icon.png"/>-->
+                        </ImageView>
+                    </graphic>
+                </Button>
+
+                <Button prefWidth="200" style="-fx-alignment: CENTER_LEFT; -fx-background-color: transparent;" styleClass="nav-button" text="Shops">
+                    <graphic>
+                        <ImageView fitHeight="20" fitWidth="20">
+<!--                            <Image url="@/images/shops-icon.png"/>-->
+                        </ImageView>
+                    </graphic>
+                </Button>
+            </VBox>
+        </VBox>
+
+        <!-- Main Content -->
+        <VBox style="-fx-background-color: white;" HBox.hgrow="ALWAYS">
+            <padding><Insets bottom="20" left="30" right="30" top="20" /></padding>
+
+            <!-- Search Bar -->
+            <TextField promptText="Search order ID..." style="-fx-background-color: #f8f9fa; -fx-pref-width: 300;">
+                <VBox.margin>
+                    <Insets bottom="20" />
+                </VBox.margin>
+            </TextField>
+
+            <!-- Order Management Section -->
+            <HBox alignment="CENTER_LEFT" spacing="20">
+                <Label style="-fx-font-size: 20; -fx-font-weight: bold;" text="Order Management" />
+                <Label style="-fx-text-fill: #666;" text="View orders" />
+                <HBox alignment="CENTER_RIGHT" HBox.hgrow="ALWAYS">
+                    <Label style="-fx-text-fill: #666;" text="Total 150 orders" />
+                </HBox>
+            </HBox>
+
+            <!-- Orders Table -->
+            <TableView fx:id="ordersTable" VBox.vgrow="ALWAYS">
+                <columns>
+                    <TableColumn fx:id="orderIdColumn" prefWidth="150" text="Order ID">
+                        <cellValueFactory>
+                            <PropertyValueFactory property="orderId" />
+                        </cellValueFactory>
+                    </TableColumn>
+                    <TableColumn fx:id="shopColumn" prefWidth="200" text="Shop">
+                        <cellValueFactory>
+                            <PropertyValueFactory property="cashierName" />
+                        </cellValueFactory>
+                    </TableColumn>
+                    <TableColumn fx:id="cashierIdColumn" prefWidth="200" text="Cashier">
+                        <cellValueFactory>
+                            <PropertyValueFactory property="cashier" />
+                        </cellValueFactory>
+                    </TableColumn>
+                    <TableColumn fx:id="orderDateColumn" prefWidth="200" text="Order date">
+                        <cellValueFactory>
+                            <PropertyValueFactory property="orderDate" />
+                        </cellValueFactory>
+                    </TableColumn>
+                    <TableColumn fx:id="totalColumn" prefWidth="150" text="Total">
+                        <cellValueFactory>
+                            <PropertyValueFactory property="total" />
+                        </cellValueFactory>
+                    </TableColumn>
+                </columns>
+                <VBox.margin>
+                    <Insets top="20" />
+                </VBox.margin>
+            </TableView>
+        </VBox>
+    </HBox>
+
 </VBox>

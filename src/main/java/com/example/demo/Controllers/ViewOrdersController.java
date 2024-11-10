@@ -2,12 +2,14 @@ package com.example.demo.Controllers;
 
 import com.example.demo.DAO.OrderDAO;
 import com.example.demo.Models.Order;
+import com.example.demo.Models.UserSessionManager;
 import com.example.demo.Utils.DBConnection;
 import com.example.demo.Utils.SceneSwitcher;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
+import javafx.scene.control.Label;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.cell.PropertyValueFactory;
@@ -25,9 +27,13 @@ import java.util.ResourceBundle;
 
 public class ViewOrdersController implements Initializable {
     @FXML
+    private Label userName;
+    @FXML
     private TableView<Order> ordersTable;
     @FXML
     private TableColumn<Order, Integer> orderIdColumn;
+    @FXML
+    private TableColumn<Order, String> shopColumn;
     @FXML
     private TableColumn<Order, Integer> cashierIdColumn;
     @FXML
@@ -35,14 +41,20 @@ public class ViewOrdersController implements Initializable {
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
+        // Set the username label
+//        String Username = UserSessionManager.getInstance().getCurrentSession().getUserName();
+//        userName.setText( Username);
+
         orderIdColumn.setCellValueFactory(new PropertyValueFactory<>("orderId"));
         cashierIdColumn.setCellValueFactory(new PropertyValueFactory<>("cashierId"));
         totalColumn.setCellValueFactory(new PropertyValueFactory<>("total"));
+        shopColumn.setCellValueFactory(new PropertyValueFactory<>("cashierName"));
 
         OrderDAO orderDAO = new OrderDAO();
         // Load orders data
         ObservableList<Order> orders = FXCollections.observableArrayList(orderDAO.getAllOrders());
         ordersTable.setItems(orders);
+
     }
 
     public void handleBack() throws IOException {

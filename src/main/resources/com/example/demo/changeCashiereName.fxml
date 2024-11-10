@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+
+<VBox  alignment="CENTER" spacing="10.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.demo.Controllers.changeNameController" >
+
+    <Label text="Enter cashier ID:"/>
+    <TextField fx:id="cashierIDField"/>
+
+    <Label text="Enter new name:"/>
+    <TextField fx:id="newNameField"/>
+
+
+
+    <Button text="Change Password" onAction="#handleChangeName"/>
+
+    <Button layoutX="500.0" layoutY="350.0" mnemonicParsing="false"  text="Back" />
+
+</VBox>
+

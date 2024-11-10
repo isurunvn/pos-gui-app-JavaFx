@@ -53,4 +53,16 @@ public class ShopDAO {
             pstmt.executeUpdate();
         }
     }
+
+    public void updateCashierPassword(int cashierId, String newPassword) throws SQLException {
+        String query = "UPDATE cashier SET password = ? WHERE id = ?";
+        try (Connection conn = DBConnection.getConnection();
+             PreparedStatement pstmt = conn.prepareStatement(query))  {
+
+            pstmt.setString(1, newPassword);
+            pstmt.setInt(2, cashierId);
+            pstmt.executeUpdate();
+        }
+    }
+
 }

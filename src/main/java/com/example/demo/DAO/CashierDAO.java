@@ -92,4 +92,6 @@ public class CashierDAO {
             pstmt.executeUpdate();
         }
     }
+
+
 }

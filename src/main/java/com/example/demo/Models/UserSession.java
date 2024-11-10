@@ -15,9 +15,7 @@ public class UserSession {
         return userId;
     }
 
-    public String getUserName() {
-        return userName;
-    }
+    public String getUserName() { return userName; }
 
     public String getRole() {
         return role;

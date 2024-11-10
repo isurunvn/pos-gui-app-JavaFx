@@ -3,6 +3,7 @@ package com.example.demo.Controllers;
 import com.example.demo.Models.UserSession;
 import com.example.demo.Models.UserSessionManager;
 import com.example.demo.Utils.SceneSwitcher;
+import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
@@ -145,6 +146,22 @@ public class MenuController implements Initializable {
     public void handleLogout() throws IOException {
         UserSessionManager.getInstance().clearSession();
         SceneSwitcher.switchScene((Stage) logOutButton.getScene().getWindow(), "/com/example/demo/login.fxml");
+    }
+
+    public void handleChangeCashierPassword() {
+        try {
+            SceneSwitcher.switchScene((Stage) logOutButton.getScene().getWindow(), "/com/example/demo/changeCashierePassword.fxml");
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+
+    public void handleChangeCashierName() {
+        try {
+            SceneSwitcher.switchScene((Stage) logOutButton.getScene().getWindow(), "/com/example/demo/changeCashiereName.fxml");
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
     }
 
 }

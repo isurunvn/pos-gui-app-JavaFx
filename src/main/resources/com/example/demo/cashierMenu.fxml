@@ -19,6 +19,9 @@
       <VBox layoutX="14.0" layoutY="64.0" prefHeight="206.0" prefWidth="164.0" spacing="20">
           <Button alignment="TOP_LEFT" onAction="#handleCreateOrder" text="1.Create an Order" />
           <Button alignment="TOP_LEFT" onAction="#handleViewProducts" text="2.View Products" />
+          <Button alignment="TOP_LEFT"  text="3.change name" onAction="#handleChangeCashierName"/>
+          <Button alignment="TOP_LEFT" onAction="#handleChangeCashierPassword" text="4.change password" />
+
       </VBox>
    </children>
 </AnchorPane>

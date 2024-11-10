@@ -5,28 +5,122 @@
 <?import javafx.scene.control.TableView?>
 <?import javafx.scene.control.cell.PropertyValueFactory?>
 <?import javafx.scene.layout.AnchorPane?>
+<?import javafx.geometry.Insets?>
 
-<AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/22" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.demo.Controllers.ViewProductsController">
-   <children>
-      <TableView fx:id="productsTable" layoutX="14.0" layoutY="14.0" prefHeight="300.0" prefWidth="572.0">
-        <columns>
-          <TableColumn fx:id="productIdColumn" prefWidth="75.0" text="Product ID">
-            <cellValueFactory>
-              <PropertyValueFactory property="productId"/>
-            </cellValueFactory>
-          </TableColumn>
-          <TableColumn fx:id="productNameColumn" prefWidth="200.0" text="Product Name">
-            <cellValueFactory>
-              <PropertyValueFactory property="productName"/>
-            </cellValueFactory>
-          </TableColumn>
-          <TableColumn fx:id="priceColumn" prefWidth="100.0" text="Price">
-            <cellValueFactory>
-              <PropertyValueFactory property="price"/>
-            </cellValueFactory>
-          </TableColumn>
-        </columns>
-      </TableView>
-      <Button layoutX="500.0" layoutY="350.0" mnemonicParsing="false" onAction="#handleBack" text="Back" />
-   </children>
+<AnchorPane prefHeight="400.0" prefWidth="600.0" style="-fx-background-color: white;" xmlns="http://javafx.com/javafx/22" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.demo.Controllers.ViewProductsController">
+    <style>
+        /* Base styles */
+        .root {
+        -fx-font-family: 'Segoe UI', sans-serif;
+        -fx-font-size: 14px;
+        -fx-background-color: white;
+        }
+
+        /* TableView styles */
+        .table-view {
+        -fx-background-color: transparent;
+        -fx-border-color: #E0E0E0;
+        -fx-border-radius: 4px;
+        }
+
+        .table-view .column-header-background {
+        -fx-background-color: #F8F9FA;
+        -fx-border-color: #E0E0E0;
+        -fx-border-width: 0 0 1 0;
+        }
+
+        .table-view .column-header {
+        -fx-background-color: transparent;
+        -fx-padding: 10px;
+        -fx-font-weight: bold;
+        -fx-text-fill: #333333;
+        }
+
+        .table-view .table-cell {
+        -fx-padding: 10px;
+        -fx-border-color: transparent #E0E0E0 #E0E0E0 transparent;
+        -fx-text-fill: #333333;
+        }
+
+        .table-view .table-row-cell {
+        -fx-background-color: white;
+        }
+
+        .table-view .table-row-cell:odd {
+        -fx-background-color: #FAFAFA;
+        }
+
+        .table-view .table-row-cell:selected {
+        -fx-background-color: #6C63FF20;
+        }
+
+        .table-view .table-row-cell:hover {
+        -fx-background-color: #F0F0F0;
+        }
+
+        /* Button styles */
+        .primary-button {
+        -fx-background-color: #6C63FF;
+        -fx-text-fill: white;
+        -fx-font-weight: bold;
+        -fx-padding: 8px 16px;
+        -fx-border-radius: 4px;
+        -fx-background-radius: 4px;
+        -fx-cursor: hand;
+        }
+
+        .primary-button:hover {
+        -fx-background-color: #5A52CC;
+        }
+
+        .primary-button:pressed {
+        -fx-background-color: #4A43AA;
+        }
+
+        .secondary-button {
+        -fx-background-color: #E0E0E0;
+        -fx-text-fill: #333333;
+        -fx-padding: 8px 16px;
+        -fx-border-radius: 4px;
+        -fx-background-radius: 4px;
+        -fx-cursor: hand;
+        }
+
+        .secondary-button:hover {
+        -fx-background-color: #D0D0D0;
+        }
+
+        .secondary-button:pressed {
+        -fx-background-color: #C0C0C0;
+        }
+    </style>
+
+    <children>
+        <TableView fx:id="productsTable" layoutX="14.0" layoutY="14.0" prefHeight="300.0" prefWidth="572.0" styleClass="table-view">
+            <columns>
+                <TableColumn fx:id="productIdColumn" prefWidth="100.0" text="Product ID">
+                    <cellValueFactory>
+                        <PropertyValueFactory property="productId"/>
+                    </cellValueFactory>
+                </TableColumn>
+                <TableColumn fx:id="productNameColumn" prefWidth="300.0" text="Product Name">
+                    <cellValueFactory>
+                        <PropertyValueFactory property="productName"/>
+                    </cellValueFactory>
+                </TableColumn>
+                <TableColumn fx:id="priceColumn" prefWidth="150.0" text="Price">
+                    <cellValueFactory>
+                        <PropertyValueFactory property="price"/>
+                    </cellValueFactory>
+                </TableColumn>
+            </columns>
+            <columnResizePolicy>
+                <TableView fx:constant="CONSTRAINED_RESIZE_POLICY"/>
+            </columnResizePolicy>
+        </TableView>
+        <Button layoutX="500.0" layoutY="350.0" mnemonicParsing="false" onAction="#handleBack" text="Back" styleClass="secondary-button" />
+    </children>
+    <padding>
+        <Insets top="20" right="20" bottom="20" left="20" />
+    </padding>
 </AnchorPane>

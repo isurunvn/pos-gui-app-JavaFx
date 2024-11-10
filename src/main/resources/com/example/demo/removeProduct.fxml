@@ -6,8 +6,77 @@
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.layout.VBox?>
 
-<VBox alignment="CENTER" spacing="10.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.demo.Controllers.DeleteProductController">
-    <Label text="Remove Product" />
-    <TextField fx:id="productIdField" promptText="Enter Product ID" />
-    <Button text="Remove Product" onAction="#handleRemoveProduct" />
+<VBox alignment="CENTER" spacing="20.0" style="-fx-background-color: white;" prefWidth="400.0" prefHeight="250.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.demo.Controllers.DeleteProductController">
+    <style>
+        /* Base styles */
+        .root {
+        -fx-font-family: 'Segoe UI', sans-serif;
+        -fx-font-size: 14px;
+        }
+
+        /* Title Label styles */
+        .title-label {
+        -fx-font-size: 24px;
+        -fx-font-weight: bold;
+        -fx-text-fill: #333333;
+        -fx-padding: 0 0 10 0;
+        }
+
+        /* TextField styles */
+        .form-field {
+        -fx-background-color: #FFFFFF;
+        -fx-border-color: #E0E0E0;
+        -fx-border-radius: 4px;
+        -fx-padding: 8px;
+        -fx-pref-width: 250px;
+        }
+
+        .form-field:focused {
+        -fx-border-color: #6C63FF;
+        -fx-border-width: 2px;
+        }
+
+        /* Delete Button styles */
+        .delete-button {
+        -fx-background-color: #DC3545;
+        -fx-text-fill: white;
+        -fx-font-weight: bold;
+        -fx-padding: 10px 20px;
+        -fx-border-radius: 4px;
+        -fx-background-radius: 4px;
+        -fx-cursor: hand;
+        -fx-min-width: 150px;
+        }
+
+        .delete-button:hover {
+        -fx-background-color: #C82333;
+        }
+
+        .delete-button:pressed {
+        -fx-background-color: #BD2130;
+        }
+
+        /* Container styles */
+        .content-box {
+        -fx-background-color: white;
+        -fx-padding: 30px;
+        -fx-border-color: #E0E0E0;
+        -fx-border-radius: 8px;
+        -fx-background-radius: 8px;
+        -fx-effect: dropshadow(gaussian, rgba(0, 0, 0, 0.1), 10, 0, 0, 2);
+        }
+    </style>
+
+    <padding>
+        <Insets top="20" right="20" bottom="20" left="20" />
+    </padding>
+
+    <VBox styleClass="content-box" alignment="CENTER" spacing="20.0">
+        <Label text="Remove Product" styleClass="title-label" />
+        <TextField fx:id="productIdField" promptText="Enter Product ID" styleClass="form-field" />
+        <Button text="Remove Product" onAction="#handleRemoveProduct" styleClass="delete-button" />
+
+        <Button layoutX="14.0" layoutY="160.0" mnemonicParsing="false" onAction="#handleBack" text="Back" styleClass="secondary-button" />
+
+    </VBox>
 </VBox>

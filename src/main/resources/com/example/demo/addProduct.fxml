@@ -4,13 +4,64 @@
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.layout.AnchorPane?>
+<?import javafx.geometry.Insets?>
 
-<AnchorPane prefHeight="200.0" prefWidth="400.0" xmlns="http://javafx.com/javafx/22" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.demo.Controllers.AddProductController">
+<AnchorPane prefHeight="200.0" prefWidth="400.0" style="-fx-background-color: white;" xmlns="http://javafx.com/javafx/22" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.demo.Controllers.AddProductController">
+   <style>
+      /* Base styles */
+      .root {
+      -fx-font-family: 'Segoe UI', sans-serif;
+      -fx-font-size: 14px;
+      }
+
+      /* Label styles */
+      .form-label {
+      -fx-text-fill: #333333;
+      -fx-font-size: 14px;
+      }
+
+      /* TextField styles */
+      .form-field {
+      -fx-background-color: #FFFFFF;
+      -fx-border-color: #E0E0E0;
+      -fx-border-radius: 4px;
+      -fx-padding: 8px;
+      -fx-pref-width: 200px;
+      }
+
+      .form-field:focused {
+      -fx-border-color: #6C63FF;
+      -fx-border-width: 2px;
+      }
+
+      /* Button styles */
+      .primary-button {
+      -fx-background-color: #6C63FF;
+      -fx-text-fill: white;
+      -fx-font-weight: bold;
+      -fx-padding: 8px 16px;
+      -fx-border-radius: 4px;
+      -fx-background-radius: 4px;
+      -fx-cursor: hand;
+      }
+
+      .primary-button:hover {
+      -fx-background-color: #5A52CC;
+      }
+
+      .primary-button:pressed {
+      -fx-background-color: #4A43AA;
+      }
+   </style>
+
    <children>
-      <Label layoutX="14.0" layoutY="14.0" text="Product Name:" />
-      <TextField fx:id="productNameField" layoutX="120.0" layoutY="10.0" />
-      <Label layoutX="14.0" layoutY="54.0" text="Price:" />
-      <TextField fx:id="priceField" layoutX="120.0" layoutY="50.0" />
-      <Button layoutX="120.0" layoutY="100.0" mnemonicParsing="false" onAction="#handleAddProduct" text="Add Product" />
+      <Label layoutX="14.0" layoutY="14.0" text="Product Name:" styleClass="form-label" />
+      <TextField fx:id="productNameField" layoutX="120.0" layoutY="10.0" styleClass="form-field" />
+      <Label layoutX="14.0" layoutY="54.0" text="Price:" styleClass="form-label" />
+      <TextField fx:id="priceField" layoutX="120.0" layoutY="50.0" styleClass="form-field" />
+      <Button layoutX="120.0" layoutY="100.0" mnemonicParsing="false" onAction="#handleAddProduct" text="Add Product" styleClass="primary-button" />
    </children>
+   <padding>
+      <Insets top="20" right="20" bottom="20" left="20" />
+   </padding>
 </AnchorPane>

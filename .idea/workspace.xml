@@ -6,10 +6,10 @@
   <component name="ChangeListManager">
     <list default="true" id="ba410b64-8627-46eb-b791-6b2cea5ae289" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/demo/Controllers/MenuController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/demo/Controllers/MenuController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/demo/Controllers/UpdateProductController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/demo/Controllers/UpdateProductController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/com/example/demo/adminMenu.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/com/example/demo/adminMenu.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/com/example/demo/addProduct.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/com/example/demo/addProduct.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/com/example/demo/removeProduct.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/com/example/demo/removeProduct.fxml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/resources/com/example/demo/updateProduct.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/com/example/demo/updateProduct.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/com/example/demo/viewProducts.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/com/example/demo/viewProducts.fxml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />

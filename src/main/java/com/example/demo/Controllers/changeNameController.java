@@ -89,7 +89,7 @@ public class changeNameController {
     }
 
      //Shows an alert dialog.
-
+        //just a comment
     private void showAlert(String title, String message, Alert.AlertType alertType) {
         Alert alert = new Alert(alertType);
         alert.setTitle(title);

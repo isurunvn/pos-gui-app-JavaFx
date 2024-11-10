@@ -89,4 +89,18 @@ public class ProductDAO {
             pstmt.executeUpdate();
         }
     }
+
+    public void updateProduct(Product product) throws SQLException {
+        String query = "UPDATE product SET ProductName = ?, Price = ? WHERE ProductID = ?";
+
+        try (Connection conn = DBConnection.getConnection();
+             PreparedStatement pstmt = conn.prepareStatement(query)) {
+
+            pstmt.setString(1, product.getProductName());
+            pstmt.setDouble(2, product.getPrice());
+            pstmt.setInt(3, product.getProductId());
+            pstmt.executeUpdate();
+        }
+    }
+
 }

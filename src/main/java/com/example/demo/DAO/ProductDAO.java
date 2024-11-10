@@ -40,7 +40,7 @@ public class ProductDAO {
     }
 
     public Product getProductById(int productId) throws SQLException {
-        String query = "SELECT * FROM Models.Product WHERE ProductID = ?";
+        String query = "SELECT * FROM product WHERE ProductID = ?";
 
         try (Connection conn = DBConnection.getConnection();
              PreparedStatement pstmt = conn.prepareStatement(query)) {

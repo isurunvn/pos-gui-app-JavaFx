@@ -70,6 +70,14 @@ public class MenuController implements Initializable {
             e.printStackTrace();
         }
     }
+    
+    public void handleUpdateProduct() {
+        try {
+            SceneSwitcher.switchScene((Stage) logOutButton.getScene().getWindow(), "/com/example/demo/updateProduct.fxml");
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
 
     public void handleAddCashier() {
         try {

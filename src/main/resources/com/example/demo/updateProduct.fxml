@@ -19,7 +19,7 @@
 
         <Button layoutX="120.0" layoutY="160.0" mnemonicParsing="false" onAction="#handleUpdateProduct" text="Update Product" />
 
-<!--        <Button layoutX="500.0" layoutY="350.0" mnemonicParsing="false" onAction="#handleBack" text="Back" />-->
+        <Button layoutX="500.0" layoutY="350.0" mnemonicParsing="false" onAction="#handleBack" text="Back" />
 
     </children>
 </AnchorPane>

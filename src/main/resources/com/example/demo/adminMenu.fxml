@@ -23,11 +23,12 @@
           <Button alignment="TOP_LEFT" onAction="#handleAddProduct" text="4.Add Product" />
          <Button alignment="TOP_LEFT" onAction="#handleViewProducts" prefHeight="26.0" prefWidth="102.0" text="5.View Products" />
          <Button alignment="TOP_LEFT" onAction="#handleRemoveProduct" prefHeight="26.0" prefWidth="102.0" text="6.Remove product" />
-         <Button alignment="TOP_LEFT" onAction="#handleAddCashier" prefHeight="26.0" prefWidth="102.0" text="7.Add Cashier" />
-         <Button alignment="TOP_LEFT" onAction="#handleViewCashiers" prefHeight="26.0" prefWidth="102.0" text="8.View Cashiers" />
-         <Button alignment="TOP_LEFT" onAction="#handleRemoveCashier" prefHeight="26.0" prefWidth="102.0" text="9.Remove Cashier" />
-         <Button alignment="TOP_LEFT" onAction="#handleViewOrders" prefHeight="26.0" prefWidth="102.0" text="10.View Orders" />
-          <Button alignment="TOP_LEFT" onAction="#handleViewOrderByID" prefHeight="26.0" prefWidth="102.0" text="11.View Order By ID" />
+          <Button alignment="TOP_LEFT" onAction="#handleUpdateProduct" prefHeight="26.0" prefWidth="102.0" text="7.Update product" />
+          <Button alignment="TOP_LEFT" onAction="#handleAddCashier" prefHeight="26.0" prefWidth="102.0" text="8.Add Cashier" />
+         <Button alignment="TOP_LEFT" onAction="#handleViewCashiers" prefHeight="26.0" prefWidth="102.0" text="9.View Cashiers" />
+         <Button alignment="TOP_LEFT" onAction="#handleRemoveCashier" prefHeight="26.0" prefWidth="102.0" text="10.Remove Cashier" />
+         <Button alignment="TOP_LEFT" onAction="#handleViewOrders" prefHeight="26.0" prefWidth="102.0" text="11.View Orders" />
+          <Button alignment="TOP_LEFT" onAction="#handleViewOrderByID" prefHeight="26.0" prefWidth="102.0" text="12.View Order By ID" />
           <Button onAction="#handleRemoveOrder" text="12.Delete Order"/>
           <padding>
             <Insets left="20.0" top="10.0" />

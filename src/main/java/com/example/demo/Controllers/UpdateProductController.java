@@ -66,11 +66,11 @@ public class UpdateProductController {
         alert.showAndWait();
     }
 
-//    public void handleBack() throws IOException {
-//        try {
-//            SceneSwitcher.handleBackToMenu((Stage) productsTable.getScene().getWindow());
-//        } catch (IOException e) {
-//            e.printStackTrace();
-//        }
-//    }
+    public void handleBack() throws IOException {
+        try {
+            SceneSwitcher.handleBackToMenu((Stage) productIdField.getScene().getWindow());
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
 }

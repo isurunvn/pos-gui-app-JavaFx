@@ -8,7 +8,7 @@
    <children>
        <!-- Include the header bar -->
        <fx:include source="header.fxml" />
-      <VBox prefHeight="206.0" prefWidth="164.0" spacing="20">
+      <VBox alignment="CENTER" prefHeight="206.0" prefWidth="164.0" spacing="20">
           <Button fx:id="createOrderButton" alignment="TOP_LEFT" onAction="#handleCreateOrder" text="1.Create an Order" />
           <Button alignment="TOP_LEFT" onAction="#handleCashierViewProducts" text="2.View Products" />
       </VBox>

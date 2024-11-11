@@ -101,19 +101,17 @@ public class OrderDAO {
             while (resultSet.next()) {
                 int orderId = resultSet.getInt("OrderID");
                 int cashierId = resultSet.getInt("CashierID");
+                CashierDAO cashierDAO = new CashierDAO();
+                String cashierName = cashierDAO.getCashierById(cashierId).getCashierName();
+                ShopDAO shopDAO = new ShopDAO();
+                String shopName = shopDAO.getShopById(cashierDAO.getCashierById(cashierId).getShopID()).getShopName();
                 double total = resultSet.getDouble("Total");
-                String cashierName = null;
-                try (Statement cashierStatement = connection.createStatement();
-                     ResultSet cashierResult = cashierStatement.executeQuery("SELECT CashierName FROM cashier WHERE CashierID = " + cashierId)) {
-                    if (cashierResult.next()) {
-                        cashierName = cashierResult.getString("CashierName");
-                    }
-                }
 
                 Order order = new Order(cashierId);
                 order.setOrderId(orderId);
                 order.setTotal(total);
                 order.setCashierName(cashierName);
+                order.setShopName(shopName);
                 orders.add(order);
 
 //                Order order = getOrderById(orderId);
@@ -127,11 +125,38 @@ public class OrderDAO {
         return orders;
     }
 
+    public void deleteOrderDetailsByOrderId(int orderId) {
+        String orderDetailsSQL = "DELETE FROM orderdetails WHERE OrderID = ?";
+        try (Connection connection = DBConnection.getConnection();
+             PreparedStatement statement = connection.prepareStatement(orderDetailsSQL)) {
+            statement.setInt(1, orderId);
+            statement.executeUpdate();
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+    }
+
     public void deleteOrderById(int orderId) {
+        // First, delete the order details
+        deleteOrderDetailsByOrderId(orderId);
+
         String orderSQL = "DELETE FROM `order` WHERE OrderID = ?";
         try (Connection connection = DBConnection.getConnection();
              PreparedStatement statement = connection.prepareStatement(orderSQL)) {
             statement.setInt(1, orderId);
+            statement.executeUpdate();
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+    }
+
+    public void updateOrder(Order order) {
+        String updateSQL = "UPDATE `order` SET CashierID = ? WHERE OrderID = ?";
+
+        try (Connection connection = DBConnection.getConnection();
+             PreparedStatement statement = connection.prepareStatement(updateSQL)) {
+            statement.setInt(1, order.getCashierId());
+            statement.setInt(2, order.getOrderId());
             statement.executeUpdate();
         } catch (SQLException e) {
             e.printStackTrace();

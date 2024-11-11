@@ -6,7 +6,7 @@
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.HBox?>
 
-<HBox xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/22" fx:controller="com.example.demo.Controllers.AdminHeaderController" alignment="CENTER_LEFT" spacing="20" style="-fx-background-color: white; -fx-border-color: #eee; -fx-border-width: 0 0 1 0;">
+<HBox xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/22" fx:controller="com.example.demo.Controllers.HeaderController" alignment="CENTER_LEFT" spacing="20" style="-fx-background-color: white; -fx-border-color: #eee; -fx-border-width: 0 0 1 0;">
     <padding><Insets bottom="10" left="30" right="30" top="10" /></padding>
 
     <!-- Logo and Company Name -->
@@ -26,10 +26,8 @@
     </HBox>
 
     <!-- Right Side Header Items -->
-    <Label style="-fx-font-weight: bold;" text="Shop : " />
-<!--    <Label fx:id="shopName" text="ABC shop" />-->
 
-    <Label style="-fx-font-weight: bold;" text="Admin : " />
+    <Label fx:id="userRole" style="-fx-font-weight: bold;" text="Admin: " />
     <Label fx:id="userName" text="Chathumini" />
     <Button fx:id="logoutButton" onAction="#handleLogout" style="-fx-background-color: #6c5ce7; -fx-text-fill: white;" text="Logout" />
 </HBox>

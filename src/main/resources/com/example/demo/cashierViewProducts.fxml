@@ -5,39 +5,31 @@
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.TableColumn?>
 <?import javafx.scene.control.TableView?>
-<?import javafx.scene.control.TextField?>
 <?import javafx.scene.control.cell.PropertyValueFactory?>
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.VBox?>
 
-<VBox xmlns="http://javafx.com/javafx/22" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.demo.Controllers.ViewProductsController">
+<VBox xmlns="http://javafx.com/javafx/22" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.demo.Controllers.CashierViewProductsController">
    <children>
 
-             <!-- Include the header bar -->
+       <!-- Include the header bar -->
        <fx:include source="header.fxml" />
 
-             <!-- Main Content Area -->
+       <!-- Main Content Area -->
        <HBox VBox.vgrow="ALWAYS">
-
-        <fx:include source="sidebar.fxml" />
-
-                 <!-- Main Content -->
            <VBox style="-fx-background-color: white;" HBox.hgrow="ALWAYS">
                <padding>
-               <Insets bottom="20" left="30" right="30" top="20" />
-            </padding>
+                   <Insets bottom="20" left="30" right="30" top="20" />
+               </padding>
 
-                     <!-- Product Management Section -->
+               <!-- Product Management Section -->
                <HBox alignment="CENTER_LEFT" spacing="20">
                    <Button mnemonicParsing="false" onAction="#handleBack" style="-fx-background-color: white; -fx-border-color: grey; -fx-border-radius: 5;" text="Back" />
                    <Label style="-fx-font-size: 20; -fx-font-weight: bold;" text="Product Management" />
                    <Label style="-fx-text-fill: #666;" text="View products" />
-                   <HBox alignment="CENTER_RIGHT" HBox.hgrow="ALWAYS">
-                       <Button fx:id="addProductButton" onAction="#handleAddProduct" mnemonicParsing="false" style="-fx-background-color: #6c5ce7;" text="Add new product" textFill="WHITE" />
-                   </HBox>
                </HBox>
 
-                     <!-- Products Table -->
+               <!-- Products Table -->
                <TableView fx:id="productsTable" VBox.vgrow="ALWAYS">
                    <columns>
                        <TableColumn fx:id="productIdColumn" prefWidth="150" text="Product ID">
@@ -55,7 +47,6 @@
                                <PropertyValueFactory property="price" />
                            </cellValueFactory>
                        </TableColumn>
-                       <TableColumn fx:id="actionsColumn" prefWidth="200" text="Actions" />
                    </columns>
                    <VBox.margin>
                        <Insets top="20" />
@@ -64,5 +55,4 @@
            </VBox>
        </HBox>
    </children>
-
 </VBox>

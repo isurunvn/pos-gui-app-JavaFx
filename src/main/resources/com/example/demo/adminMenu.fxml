@@ -8,7 +8,7 @@
 <VBox xmlns="http://javafx.com/javafx/22" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.demo.Controllers.MenuController">
    <children>
        <!-- Include the header bar -->
-       <fx:include source="adminHeader.fxml" />
+       <fx:include source="header.fxml" />
       <VBox prefHeight="321.0" prefWidth="375.0" spacing="20">
           <Button alignment="TOP_LEFT" onAction="#handleAddShop" prefHeight="26.0" prefWidth="102.0" text="1.Add Shop" />
           <Button alignment="TOP_LEFT" onAction="#handleViewShops" text="2.View Shops" />

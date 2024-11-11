@@ -28,22 +28,28 @@ public class SceneSwitcher {
 }
 
     public static void handleBackToMenu(Stage stage) throws IOException {
-    UserSession currentSession = UserSessionManager.getInstance().getCurrentSession();
-    if (currentSession == null) {
-        throw new IllegalStateException("No active user session found.");
+        UserSession currentSession = UserSessionManager.getInstance().getCurrentSession();
+        if (currentSession == null) {
+            throw new IllegalStateException("No active user session found.");
+        }
+
+        String role = currentSession.getRole();
+        String fxmlPath;
+
+        if ("admin".equals(role)) {
+            fxmlPath = "/com/example/demo/adminMenu.fxml";
+        } else if ("cashier".equals(role)) {
+            fxmlPath = "/com/example/demo/cashierMenu.fxml";
+        } else {
+            throw new IllegalArgumentException("Unknown role: " + role);
+        }
+
+        switchScene(stage, fxmlPath, 1000, 700);
     }
 
-    String role = currentSession.getRole();
-    String fxmlPath;
-
-    if ("admin".equals(role)) {
-        fxmlPath = "/com/example/demo/adminMenu.fxml";
-    } else if ("cashier".equals(role)) {
-        fxmlPath = "/com/example/demo/cashierMenu.fxml";
-    } else {
-        throw new IllegalArgumentException("Unknown role: " + role);
+    public static void handleBackPage(Stage stage, String fxmlPath) throws IOException {
+        switchScene(stage, fxmlPath, 1000, 700);
     }
 
-    switchScene(stage, fxmlPath, 1000, 700);
-}
+
 }

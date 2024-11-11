@@ -2,6 +2,7 @@ package com.example.demo.Controllers;
 
 import com.example.demo.Models.UserSessionManager;
 import com.example.demo.Utils.SceneSwitcher;
+import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 import javafx.stage.Stage;
@@ -13,13 +14,12 @@ public class MenuController {
 //    private Label userNameLabel;
     @FXML
     private Button viewOrderButton;
+    @FXML
+    private Button createOrderButton;
 
 //    @Override
 //    public void initialize(URL location, ResourceBundle resources) {
-//        UserSession currentSession = UserSessionManager.getInstance().getCurrentSession();
-//        if (currentSession != null) {
-//            userNameLabel.setText("Hi new, " + currentSession.getUserName());
-//        }
+//
 //    }
 
 
@@ -116,7 +116,7 @@ public class MenuController {
     ///////////////////////////////////////Cashier menu functions
     public void handleCreateOrder() {
         try {
-            SceneSwitcher.switchScene((Stage) viewOrderButton.getScene().getWindow(), "/com/example/demo/createOrder.fxml");
+            SceneSwitcher.switchScene((Stage) createOrderButton.getScene().getWindow(), "/com/example/demo/createOrder.fxml");
         } catch (IOException e) {
             e.printStackTrace();
         }
@@ -128,6 +128,14 @@ public class MenuController {
         try {
             // Reuse the switchScene method to switch to the viewProducts.fxml page
             SceneSwitcher.switchScene((Stage) viewOrderButton.getScene().getWindow(), "/com/example/demo/viewProducts.fxml");
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+
+    public void handleCashierViewProducts() {
+        try {
+            SceneSwitcher.switchScene((Stage) createOrderButton.getScene().getWindow(), "/com/example/demo/cashierViewProducts.fxml");
         } catch (IOException e) {
             e.printStackTrace();
         }

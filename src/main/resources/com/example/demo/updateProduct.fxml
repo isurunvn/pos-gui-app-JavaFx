@@ -7,7 +7,7 @@
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.VBox?>
 
-<VBox xmlns="http://javafx.com/javafx/22" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.demo.Controllers.AddProductController">
+<VBox xmlns="http://javafx.com/javafx/22" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.demo.Controllers.UpdateProductController">
     <children>
         <!-- Include the header bar -->
         <fx:include source="header.fxml" />
@@ -28,7 +28,7 @@
                     <Button fx:id="backButton" mnemonicParsing="false" onAction="#handleBack"
                             style="-fx-background-color: white; -fx-border-color: grey; -fx-border-radius: 5;" text="Back" />
                     <Label style="-fx-font-size: 20; -fx-font-weight: bold;" text="Product Management" />
-                    <Label style="-fx-text-fill: #666;" text="Add a new product" />
+                    <Label style="-fx-text-fill: #666;" text="Update product details" />
                 </HBox>
 
                 <!-- Form Content -->
@@ -37,24 +37,27 @@
                         <Insets top="40" />
                     </padding>
 
+                    <!-- Product ID Display -->
+                    <Label fx:id="productIdLabel" text="Product ID #1234" style="-fx-font-size: 14;" />
+
                     <!-- Product Name Field -->
                     <VBox spacing="10">
                         <Label text="Product Name :" />
-                        <TextField fx:id="productNameField" promptText="Enter product name"
+                        <TextField fx:id="productNameField" text="Sample Product"
                                    style="-fx-pref-width: 300; -fx-background-color: white; -fx-border-color: #E5E7EB; -fx-border-radius: 5;" />
                     </VBox>
 
                     <!-- Price Field -->
                     <VBox spacing="10">
                         <Label text="Price :" />
-                        <TextField fx:id="priceField" promptText="Enter product price"
+                        <TextField fx:id="priceField" text="100.00"
                                    style="-fx-pref-width: 300; -fx-background-color: white; -fx-border-color: #E5E7EB; -fx-border-radius: 5;" />
                     </VBox>
 
-                    <!-- Create Product Button -->
-                    <Button fx:id="createProductButton" mnemonicParsing="false" onAction="#handleCreateProduct"
+                    <!-- Update Product Button -->
+                    <Button fx:id="updateProductButton" mnemonicParsing="false" onAction="#handleUpdateProduct"
                             style="-fx-background-color: #6366F1; -fx-text-fill: white; -fx-background-radius: 5;"
-                            text="Create Product">
+                            text="Update Product">
                         <VBox.margin>
                             <Insets top="20" />
                         </VBox.margin>

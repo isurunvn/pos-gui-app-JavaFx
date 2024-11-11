@@ -9,20 +9,23 @@
 <?import javafx.scene.control.cell.PropertyValueFactory?>
 
 <?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.HBox?>
 <VBox xmlns="http://javafx.com/javafx" xmlns:fx="http://javafx.com/fxml" fx:controller="com.example.demo.Controllers.ViewOrderByIDController">
-    <Button layoutX="500.0" layoutY="350.0" mnemonicParsing="false" onAction="#handleBack" text="Back" />
+
     <children>
         <TextField fx:id="orderIdInput" promptText="Enter Order ID"/>
         <Button text="Search" onAction="#handleSearchButton"/>
         <Label fx:id="orderIdLabel"/>
-        <Label fx:id="cashierIdLabel"/>
+        <HBox>
+            <Label text="CashierID: "/>
+            <TextField fx:id="cashierIdInput"/>
+            <Button onAction="#handleUpdateOrder" text="Update Order" style="-fx-background-color: #4CAF50; -fx-text-fill: white;" />
+        </HBox>
         <Label fx:id="totalLabel"/>
         <TableView fx:id="orderItemsTable">
             <columns>
-                <TableColumn fx:id="productIdColumn" text="Product ID"/>
                 <TableColumn fx:id="productNameColumn" text="Product Name"/>
                 <TableColumn fx:id="quantityColumn" text="Quantity"/>
-                <TableColumn fx:id="priceColumn" text="Price"/>
             </columns>
         </TableView>
     </children>

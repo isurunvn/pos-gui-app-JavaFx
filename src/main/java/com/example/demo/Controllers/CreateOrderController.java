@@ -5,6 +5,8 @@ import com.example.demo.Models.OrderItem;
 import com.example.demo.Models.Product;
 import com.example.demo.DAO.OrderDAO;
 import com.example.demo.DAO.ProductDAO;
+import com.example.demo.Models.UserSessionManager;
+import com.example.demo.Utils.SceneSwitcher;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
@@ -15,6 +17,7 @@ import javafx.scene.control.TextField;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.stage.Stage;
 
+import java.io.IOException;
 import java.sql.SQLException;
 import java.util.List;
 
@@ -66,7 +69,9 @@ public class CreateOrderController {
 
     @FXML
     public void handleSubmitOrder() throws SQLException {
-        Order order = new Order(1); // Assuming cashierId is 1 for simplicity
+        UserSessionManager userSessionManager = UserSessionManager.getInstance();
+        int cashierId = userSessionManager.getCurrentSession().getUserID();
+        Order order = new Order(cashierId); // Assuming cashierId is 1 for simplicity
         for (OrderItem item : orderItems) {
             order.addItem(item.getProduct(), item.getQuantity());
         }
@@ -76,7 +81,17 @@ public class CreateOrderController {
 
         System.out.println("Order saved successfully!");
         // Close the window after saving the order
-        Stage stage = (Stage) productComboBox.getScene().getWindow();
-        stage.close();
+
+        //clear all fields
+        orderItems.clear();
+
+    }
+
+    public void handleBack() {
+        try {
+            SceneSwitcher.switchScene((Stage) orderItemsTable.getScene().getWindow(), "/com/example/demo/cashierMenu.fxml");
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
     }
 }

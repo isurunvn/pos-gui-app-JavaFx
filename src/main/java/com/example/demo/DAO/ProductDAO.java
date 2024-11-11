@@ -78,15 +78,57 @@ public class ProductDAO {
         }
         return null;
     }
+    
+    public void deleteProduct(int productId) throws SQLException {
+        Connection connection = DBConnection.getConnection();
 
-    public void removeProduct(int productId) throws SQLException {
-        String query = "DELETE FROM product WHERE ProductID = ?";
+        // Find related OrderIDs in orderdetails table
+        String findOrderIDsSQL = "SELECT OrderID FROM orderdetails WHERE ProductID = ?";
+        List<Integer> orderIDs = new ArrayList<>();
+        try (PreparedStatement findOrderIDsStmt = connection.prepareStatement(findOrderIDsSQL)) {
+            findOrderIDsStmt.setInt(1, productId);
+            ResultSet rs = findOrderIDsStmt.executeQuery();
+            while (rs.next()) {
+                orderIDs.add(rs.getInt("OrderID"));
+            }
+        }
 
-        try (Connection conn = DBConnection.getConnection();
-             PreparedStatement pstmt = conn.prepareStatement(query)) {
+        // Delete related rows in orderdetails table
+        String deleteOrderDetailsSQL = "DELETE FROM orderdetails WHERE ProductID = ?";
+        try (PreparedStatement deleteOrderDetailsStmt = connection.prepareStatement(deleteOrderDetailsSQL)) {
+            deleteOrderDetailsStmt.setInt(1, productId);
+            deleteOrderDetailsStmt.executeUpdate();
+        }
 
-            pstmt.setInt(1, productId);
-            pstmt.executeUpdate();
+        // Delete related rows in order table
+        if (!orderIDs.isEmpty()) {
+            String deleteOrderSQL = "DELETE FROM `order` WHERE OrderID = ?";
+            try (PreparedStatement deleteOrderStmt = connection.prepareStatement(deleteOrderSQL)) {
+                for (int orderId : orderIDs) {
+                    deleteOrderStmt.setInt(1, orderId);
+                    deleteOrderStmt.executeUpdate();
+                }
+            }
+        }
+
+        // Delete the product from product table
+        String deleteProductSQL = "DELETE FROM product WHERE ProductID = ?";
+        try (PreparedStatement deleteProductStmt = connection.prepareStatement(deleteProductSQL)) {
+            deleteProductStmt.setInt(1, productId);
+            deleteProductStmt.executeUpdate();
         }
     }
+
+    public void updateProduct(Product product) throws SQLException {
+    String query = "UPDATE product SET ProductName = ?, Price = ? WHERE ProductID = ?";
+
+    try (Connection conn = DBConnection.getConnection();
+         PreparedStatement pstmt = conn.prepareStatement(query)) {
+
+        pstmt.setString(1, product.getProductName());
+        pstmt.setDouble(2, product.getPrice());
+        pstmt.setInt(3, product.getProductId());
+        pstmt.executeUpdate();
+    }
+}
 }

@@ -15,7 +15,7 @@ public class DeleteProductController {
         int productId = Integer.parseInt(productIdField.getText());
         ProductDAO productDAO = new ProductDAO();
         try {
-            productDAO.removeProduct(productId);
+            productDAO.deleteProduct(productId);
             System.out.println("Product removed successfully");
         } catch (SQLException e) {
             e.printStackTrace();

@@ -42,7 +42,7 @@ public class LoginController {
                 if (admin != null) {
                     UserSession userSession = new UserSession(admin.getAdminID(), admin.getAdminName(), "admin");
                     UserSessionManager.getInstance().setCurrentSession(userSession);
-                    SceneSwitcher.switchScene((Stage) userNameField.getScene().getWindow(), "/com/example/demo/adminMenu.fxml");
+                    SceneSwitcher.switchScene((Stage) userNameField.getScene().getWindow(), "/com/example/demo/viewProducts.fxml");
                 } else {
                     errorLabel.setText("Invalid admin credentials. Please try again.");
                 }

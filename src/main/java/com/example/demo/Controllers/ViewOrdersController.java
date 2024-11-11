@@ -2,27 +2,25 @@ package com.example.demo.Controllers;
 
 import com.example.demo.DAO.OrderDAO;
 import com.example.demo.Models.Order;
-import com.example.demo.Models.UserSessionManager;
-import com.example.demo.Utils.DBConnection;
+import com.example.demo.Models.Product;
 import com.example.demo.Utils.SceneSwitcher;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
-import javafx.scene.control.Label;
-import javafx.scene.control.TableColumn;
-import javafx.scene.control.TableView;
+import javafx.geometry.Insets;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
+import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
+import javafx.scene.layout.HBox;
+import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
 
 import java.io.IOException;
 import java.net.URL;
-import java.sql.Connection;
-import java.sql.DriverManager;
-import java.sql.ResultSet;
-import java.sql.Statement;
-import java.util.ArrayList;
-import java.util.List;
+import java.sql.SQLException;
 import java.util.ResourceBundle;
 
 public class ViewOrdersController implements Initializable {
@@ -38,60 +36,98 @@ public class ViewOrdersController implements Initializable {
     private TableColumn<Order, Integer> cashierIdColumn;
     @FXML
     private TableColumn<Order, Double> totalColumn;
+    @FXML
+    private TableColumn<Order, Void> actionsColumn;
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
-        // Set the username label
-//        String Username = UserSessionManager.getInstance().getCurrentSession().getUserName();
-//        userName.setText( Username);
 
         orderIdColumn.setCellValueFactory(new PropertyValueFactory<>("orderId"));
-        cashierIdColumn.setCellValueFactory(new PropertyValueFactory<>("cashierId"));
+        cashierIdColumn.setCellValueFactory(new PropertyValueFactory<>("cashierName"));
         totalColumn.setCellValueFactory(new PropertyValueFactory<>("total"));
-        shopColumn.setCellValueFactory(new PropertyValueFactory<>("cashierName"));
+//        shopColumn.setCellValueFactory(new PropertyValueFactory<>("shopName"));
 
         OrderDAO orderDAO = new OrderDAO();
-        // Load orders data
         ObservableList<Order> orders = FXCollections.observableArrayList(orderDAO.getAllOrders());
         ordersTable.setItems(orders);
 
+        setupActionsColumn();
     }
 
-    public void handleBack() throws IOException {
+    private void setupActionsColumn() {
+        actionsColumn.setCellFactory(param -> new TableCell<>() {
+            private final Button viewButton = new Button("View");
+            private final Button deleteButton = new Button("Delete");
+            private final HBox buttonBox = new HBox(5);
+
+            {
+                viewButton.setStyle("-fx-background-color: #4CAF50; -fx-text-fill: white;");
+                deleteButton.setStyle("-fx-background-color: #f44336; -fx-text-fill: white;");
+                buttonBox.getChildren().addAll(viewButton, deleteButton);
+                buttonBox.setPadding(new Insets(2));
+
+                viewButton.setOnAction(event -> {
+                    Order order = getTableRow().getItem();
+                    handleViewOrder(order);
+                });
+
+                deleteButton.setOnAction(event -> {
+                    Order order = getTableRow().getItem();
+                    handleDeleteOrder(order);
+                });
+            }
+
+            @Override
+            protected void updateItem(Void item, boolean empty) {
+                super.updateItem(item, empty);
+                if (empty) {
+                    setGraphic(null);
+                } else {
+                    setGraphic(buttonBox);
+                }
+            }
+        });
+    }
+
+    private void handleDeleteOrder(Order order) {
+    if (order != null) {
+        Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
+        alert.setTitle("Delete Order");
+        alert.setHeaderText(null);
+        alert.setContentText("Are you sure you want to delete order with ID: " + order.getOrderId() + "?");
+
+        alert.showAndWait().ifPresent(response -> {
+            if (response == ButtonType.OK) {
+                OrderDAO orderDAO = new OrderDAO();
+                orderDAO.deleteOrderById(order.getOrderId());
+                ordersTable.getItems().remove(order);
+            }
+        });
+    }
+}
+
+    private void handleViewOrder(Order order) {
+    try {
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("/com/example/demo/viewOrderById.fxml"));
+        Parent root = loader.load();
+
+        ViewOrderByIDController controller = loader.getController();
+        controller.viewOrderById(order.getOrderId());
+
+        Stage stage = new Stage();
+        stage.setScene(new Scene(root));
+        stage.setTitle("View Order Details");
+        stage.show();
+    } catch (IOException e) {
+        e.printStackTrace();
+    }
+}
+
+    public void handleBack() {
         try {
             SceneSwitcher.handleBackToMenu((Stage) ordersTable.getScene().getWindow());
         } catch (IOException e) {
             e.printStackTrace();
         }
     }
-
-    // Method to fetch orders from the database
-//    private List<Order> fetchOrdersFromDatabase() {
-//        List<Order> orders = new ArrayList<>();
-//        try {
-//            // Establish a connection to the database
-////            Connection connection = DriverManager.getConnection("jdbc:mysql://localhost:3306/your_database", "username", "password");
-//
-//            Connection connection = DBConnection.getConnection();
-//            Statement statement = connection.createStatement();
-//            String query = "SELECT * FROM order";
-//            ResultSet resultSet = statement.executeQuery(query);
-//
-//            // Iterate through the result set and create Order objects
-//            while (resultSet.next()) {
-//                int orderId = resultSet.getInt("order_id");
-//                int cashierId = resultSet.getInt("cashier_id");
-//                double total = resultSet.getDouble("total");
-//                orders.add(new Order(orderId, cashierId, total));
-//            }
-//
-//            // Close the connection
-//            resultSet.close();
-//            statement.close();
-//            connection.close();
-//        } catch (Exception e) {
-//            e.printStackTrace();
-//        }
-//        return orders;
-//    }
 }

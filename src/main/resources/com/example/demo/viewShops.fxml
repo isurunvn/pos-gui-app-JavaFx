@@ -1,17 +1,68 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
 <?import javafx.scene.control.TableColumn?>
 <?import javafx.scene.control.TableView?>
-<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.control.cell.PropertyValueFactory?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
 
-<?import javafx.scene.control.Button?>
-<AnchorPane xmlns:fx="http://javafx.com/fxml" fx:controller="com.example.demo.Controllers.ViewShopsController">
-    <Button layoutX="500.0" layoutY="350.0" mnemonicParsing="false" onAction="#handleBack" text="Back" />
-    <TableView fx:id="shopsTable" layoutX="14.0" layoutY="14.0" prefHeight="200.0" prefWidth="400.0">
-        <columns>
-            <TableColumn fx:id="shopIdColumn" text="Shop ID" />
-            <TableColumn fx:id="shopNameColumn" text="Shop Name" />
-            <TableColumn fx:id="addressColumn" text="Address" />
-        </columns>
-    </TableView>
-</AnchorPane>
+<VBox xmlns="http://javafx.com/javafx/22" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.demo.Controllers.ViewShopsController">
+   <children>
+
+             <!-- Include the header bar -->
+       <fx:include source="header.fxml" />
+
+             <!-- Main Content Area -->
+       <HBox VBox.vgrow="ALWAYS">
+
+        <fx:include source="sidebar.fxml" />
+
+                 <!-- Main Content -->
+           <VBox style="-fx-background-color: white;" HBox.hgrow="ALWAYS">
+               <padding>
+               <Insets bottom="20" left="30" right="30" top="20" />
+            </padding>
+
+                     <!-- Shop Management Section -->
+               <HBox alignment="CENTER_LEFT" spacing="20">
+                   <Button mnemonicParsing="false" onAction="#handleBack" style="-fx-background-color: white; -fx-border-color: grey; -fx-border-radius: 5;" text="Back" />
+                   <Label style="-fx-font-size: 20; -fx-font-weight: bold;" text="Shop Management" />
+                   <Label style="-fx-text-fill: #666;" text="View shops" />
+                   <HBox alignment="CENTER_RIGHT" HBox.hgrow="ALWAYS">
+                  <Button fx:id="addShopButton" onAction="#handleAddShop" mnemonicParsing="false" style="-fx-background-color: #6c5ce7;" text="Add new shop" textFill="WHITE" />
+                   </HBox>
+               </HBox>
+
+                     <!-- Shops Table -->
+               <TableView fx:id="shopsTable" VBox.vgrow="ALWAYS">
+                   <columns>
+                       <TableColumn fx:id="shopIdColumn" prefWidth="150" text="Shop ID">
+                           <cellValueFactory>
+                               <PropertyValueFactory property="shopId" />
+                           </cellValueFactory>
+                       </TableColumn>
+                       <TableColumn fx:id="shopNameColumn" prefWidth="200" text="Shop Name">
+                           <cellValueFactory>
+                               <PropertyValueFactory property="shopName" />
+                           </cellValueFactory>
+                       </TableColumn>
+                       <TableColumn fx:id="addressColumn" prefWidth="150" text="Address">
+                           <cellValueFactory>
+                               <PropertyValueFactory property="address" />
+                           </cellValueFactory>
+                       </TableColumn>
+                       <TableColumn fx:id="actionsColumn" prefWidth="200" text="Actions" />
+                   </columns>
+                   <VBox.margin>
+                       <Insets top="20" />
+                   </VBox.margin>
+               </TableView>
+           </VBox>
+       </HBox>
+   </children>
+
+</VBox>

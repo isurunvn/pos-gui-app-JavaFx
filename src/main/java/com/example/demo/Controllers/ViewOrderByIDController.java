@@ -5,10 +5,12 @@ import com.example.demo.Models.Order;
 import com.example.demo.Models.OrderItem;
 import com.example.demo.Utils.SceneSwitcher;
 import javafx.collections.FXCollections;
+import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
 import javafx.scene.control.*;
+import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.stage.Stage;
 
 import java.io.IOException;
@@ -20,7 +22,7 @@ public class ViewOrderByIDController {
     @FXML
     private Label orderIdLabel;
     @FXML
-    private Label cashierIdLabel;
+    private TextField cashierIdInput;
     @FXML
     private Label totalLabel;
     @FXML
@@ -35,6 +37,12 @@ public class ViewOrderByIDController {
     private TableColumn<OrderItem, Double> priceColumn;
 
     private OrderDAO orderDAO = new OrderDAO();
+
+    @FXML
+    private void initialize() {
+        productNameColumn.setCellValueFactory(new PropertyValueFactory<>("productName"));
+        quantityColumn.setCellValueFactory(new PropertyValueFactory<>("quantity"));
+    }
 
     @FXML
     private void handleSearchButton() {
@@ -56,7 +64,7 @@ public class ViewOrderByIDController {
         Order order = orderDAO.getOrderById(orderId);
         if (order != null) {
             orderIdLabel.setText("Order ID: " + order.getOrderId());
-            cashierIdLabel.setText("Cashier ID: " + order.getCashierId());
+            cashierIdInput.setText(String.valueOf(order.getCashierId()));
             totalLabel.setText("Total: " + order.getTotal());
             orderItemsTable.setItems(FXCollections.observableArrayList(order.getItems()));
         } else {
@@ -85,4 +93,28 @@ public class ViewOrderByIDController {
         }
     }
 
+    public void handleUpdateOrder() {
+    String orderIdText = orderIdInput.getText();
+    String cashierIdText = cashierIdInput.getText();
+
+    if (orderIdText != null && !orderIdText.isEmpty() && cashierIdText != null && !cashierIdText.isEmpty()) {
+        try {
+            int orderId = Integer.parseInt(orderIdText);
+            int cashierId = Integer.parseInt(cashierIdText);
+
+            Order order = orderDAO.getOrderById(orderId);
+            if (order != null) {
+                order.setCashierId(cashierId);
+                orderDAO.updateOrder(order);
+                showAlert("Success", "Cashier ID updated successfully.");
+            } else {
+                showAlert("Order Not Found", "No order found with ID: " + orderId);
+            }
+        } catch (NumberFormatException e) {
+            showAlert("Invalid Input", "Please enter valid numeric values for Order ID and Cashier ID.");
+        }
+    } else {
+        showAlert("Input Required", "Please enter both Order ID and Cashier ID.");
+    }
+}
 }

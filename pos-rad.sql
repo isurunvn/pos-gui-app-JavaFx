@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Nov 08, 2024 at 03:54 PM
+-- Generation Time: Nov 11, 2024 at 07:54 AM
 -- Server version: 10.4.32-MariaDB
 -- PHP Version: 8.0.30
 
@@ -95,7 +95,10 @@ INSERT INTO `order` (`OrderID`, `CashierID`, `Total`) VALUES
 (7, 1, 29.88),
 (8, 1, 14.97),
 (9, 1, 19.42),
-(10, 1, 751.02);
+(10, 1, 751.02),
+(11, 1, 183045.73),
+(12, 6, 265.83),
+(13, 4, 119.42);
 
 -- --------------------------------------------------------
 
@@ -115,23 +118,22 @@ CREATE TABLE `orderdetails` (
 
 INSERT INTO `orderdetails` (`OrderID`, `ProductID`, `Quantity`) VALUES
 (1, 1, 2),
-(1, 2, 1),
 (2, 3, 2),
 (2, 4, 2),
-(3, 2, 1),
 (3, 3, 2),
 (4, 6, 4),
 (5, 4, 8),
-(5, 5, 6),
-(6, 2, 2),
 (6, 4, 3),
 (7, 4, 7),
 (8, 1, 2),
-(8, 2, 1),
 (9, 3, 1),
 (9, 4, 7),
-(10, 2, 85),
-(10, 4, 63);
+(10, 4, 63),
+(11, 1, 96),
+(11, 4, 3),
+(11, 6, 500),
+(12, 4, 45),
+(13, 1, 2);
 
 -- --------------------------------------------------------
 
@@ -151,10 +153,8 @@ CREATE TABLE `product` (
 
 INSERT INTO `product` (`ProductID`, `ProductName`, `Price`) VALUES
 (1, 'Coffee', 3.99),
-(2, 'Sandwich', 6.99),
 (3, 'Cookie', 1.99),
 (4, 'Soda', 2.49),
-(5, 'Chips', 1.99),
 (6, 'Bonchi', 365.00);
 
 -- --------------------------------------------------------
@@ -175,31 +175,9 @@ CREATE TABLE `shop` (
 
 INSERT INTO `shop` (`ShopID`, `ShopName`, `Address`) VALUES
 (1, 'Downtown Store', '123 Main St'),
-(2, 'Mall Branch', '456 Mall Ave');
-
--- --------------------------------------------------------
-
---
--- Table structure for table `stock`
---
-
-CREATE TABLE `stock` (
-  `ShopID` int(11) NOT NULL,
-  `ProductID` int(11) NOT NULL,
-  `Quantity` int(11) NOT NULL DEFAULT 0
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
-
---
--- Dumping data for table `stock`
---
-
-INSERT INTO `stock` (`ShopID`, `ProductID`, `Quantity`) VALUES
-(1, 1, 100),
-(1, 2, 50),
-(1, 3, 150),
-(2, 1, 80),
-(2, 4, 200),
-(2, 5, 100);
+(2, 'Mall Branch', '456 Mall Avenue'),
+(5, 'Caravan New', '56, Rajagiriya'),
+(7, 'jdty', 'tjduyh');
 
 --
 -- Indexes for dumped tables
@@ -248,13 +226,6 @@ ALTER TABLE `shop`
   ADD PRIMARY KEY (`ShopID`);
 
 --
--- Indexes for table `stock`
---
-ALTER TABLE `stock`
-  ADD PRIMARY KEY (`ShopID`,`ProductID`),
-  ADD KEY `ProductID` (`ProductID`);
-
---
 -- AUTO_INCREMENT for dumped tables
 --
 
@@ -274,7 +245,7 @@ ALTER TABLE `cashier`
 -- AUTO_INCREMENT for table `order`
 --
 ALTER TABLE `order`
-  MODIFY `OrderID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
+  MODIFY `OrderID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=14;
 
 --
 -- AUTO_INCREMENT for table `product`
@@ -286,7 +257,7 @@ ALTER TABLE `product`
 -- AUTO_INCREMENT for table `shop`
 --
 ALTER TABLE `shop`
-  MODIFY `ShopID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `ShopID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
 
 --
 -- Constraints for dumped tables
@@ -310,13 +281,6 @@ ALTER TABLE `order`
 ALTER TABLE `orderdetails`
   ADD CONSTRAINT `orderdetails_ibfk_1` FOREIGN KEY (`OrderID`) REFERENCES `order` (`OrderID`),
   ADD CONSTRAINT `orderdetails_ibfk_2` FOREIGN KEY (`ProductID`) REFERENCES `product` (`ProductID`);
-
---
--- Constraints for table `stock`
---
-ALTER TABLE `stock`
-  ADD CONSTRAINT `stock_ibfk_1` FOREIGN KEY (`ShopID`) REFERENCES `shop` (`ShopID`),
-  ADD CONSTRAINT `stock_ibfk_2` FOREIGN KEY (`ProductID`) REFERENCES `product` (`ProductID`);
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

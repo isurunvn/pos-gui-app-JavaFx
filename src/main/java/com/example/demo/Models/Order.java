@@ -7,6 +7,7 @@ public class Order {
     private int orderId;
     private int cashierId;
     private String cashierName;
+    private String shopName;
     private List<OrderItem> items;
     private double total;
 
@@ -36,12 +37,24 @@ public class Order {
     // Getters and setters
     public int getOrderId() { return orderId; }
     public void setOrderId(int orderId) { this.orderId = orderId; }
+
+    public void setCashierId(int cashierId) { this.cashierId = cashierId; }
     public int getCashierId() { return cashierId; }
 
     public void setCashierName(String cashierName) { this.cashierName = cashierName; }
     public String getCashierName() { return cashierName; }
 
-    public List<OrderItem> getItems() { return items; }
+    public String getShopName() { return shopName; }
+    public void setShopName(String shopName) { this.shopName = shopName; }
+
+    public void setItems(List<OrderItem> items) {
+        this.items = items;
+        calculateTotal();
+    }
+
+    public List<OrderItem> getItems() {
+        return items;
+    }
 
     public double getTotal() { return total; }
 

@@ -7,7 +7,7 @@
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.VBox?>
 
-<VBox xmlns="http://javafx.com/javafx/22" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.demo.Controllers.AddProductController">
+<VBox xmlns="http://javafx.com/javafx/22" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.demo.Controllers.UpdateCashierController">
     <children>
         <!-- Include the header bar -->
         <fx:include source="header.fxml" />
@@ -27,8 +27,8 @@
                 <HBox alignment="CENTER_LEFT" spacing="20">
                     <Button fx:id="backButton" mnemonicParsing="false" onAction="#handleBack"
                             style="-fx-background-color: white; -fx-border-color: grey; -fx-border-radius: 5;" text="Back" />
-                    <Label style="-fx-font-size: 20; -fx-font-weight: bold;" text="Product Management" />
-                    <Label style="-fx-text-fill: #666;" text="Add a new product" />
+                    <Label style="-fx-font-size: 20; -fx-font-weight: bold;" text="Cashier Management" />
+                    <Label style="-fx-text-fill: #666;" text="Update cashier details" />
                 </HBox>
 
                 <!-- Form Content -->
@@ -37,24 +37,34 @@
                         <Insets top="40" />
                     </padding>
 
-                    <!-- Product Name Field -->
+                    <!-- Cashier ID Display -->
+                    <Label fx:id="cashierIdLabel" text="Cashier ID #1234" style="-fx-font-size: 14;" />
+
+                    <!-- Cashier Name Field -->
                     <VBox spacing="10">
-                        <Label text="Product Name :" />
-                        <TextField fx:id="productNameField" promptText="Enter product name"
+                        <Label text="Cashier Name :" />
+                        <TextField fx:id="cashierNameField" text="John Doe"
                                    style="-fx-pref-width: 300; -fx-background-color: white; -fx-border-color: #E5E7EB; -fx-border-radius: 5;" />
                     </VBox>
 
-                    <!-- Price Field -->
+                    <!-- Password Field -->
                     <VBox spacing="10">
-                        <Label text="Price :" />
-                        <TextField fx:id="priceField" promptText="Enter product price"
+                        <Label text="Password :" />
+                        <TextField fx:id="passwordField" text="password"
                                    style="-fx-pref-width: 300; -fx-background-color: white; -fx-border-color: #E5E7EB; -fx-border-radius: 5;" />
                     </VBox>
 
-                    <!-- Create Product Button -->
-                    <Button fx:id="createProductButton" mnemonicParsing="false" onAction="#handleCreateProduct"
+                    <!-- Shop ID Field -->
+                    <VBox spacing="10">
+                        <Label text="Shop ID :" />
+                        <TextField fx:id="shopIdField" text="John Doe"
+                                   style="-fx-pref-width: 300; -fx-background-color: white; -fx-border-color: #E5E7EB; -fx-border-radius: 5;" />
+                    </VBox>
+
+                    <!-- Update Cashier Button -->
+                    <Button fx:id="updateCashierButton" mnemonicParsing="false" onAction="#handleUpdateCashier"
                             style="-fx-background-color: #6366F1; -fx-text-fill: white; -fx-background-radius: 5;"
-                            text="Create Product">
+                            text="Update cashier">
                         <VBox.margin>
                             <Insets top="20" />
                         </VBox.margin>

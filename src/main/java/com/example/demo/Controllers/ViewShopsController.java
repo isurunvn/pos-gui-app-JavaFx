@@ -58,13 +58,13 @@ public class ViewShopsController implements Initializable {
         }
     }
 
-    public void handleBack() throws IOException {
-        try {
-            SceneSwitcher.handleBackToMenu((Stage) shopsTable.getScene().getWindow());
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
-    }
+//    public void handleBack() throws IOException {
+//        try {
+//            SceneSwitcher.handleBackToMenu((Stage) shopsTable.getScene().getWindow());
+//        } catch (IOException e) {
+//            e.printStackTrace();
+//        }
+//    }
 
 
 

@@ -60,13 +60,13 @@ public class ViewCashiersController implements Initializable {
         }
     }
 
-    public void handleBack() throws IOException {
-        try {
-            SceneSwitcher.handleBackToMenu((Stage) cashiersTable.getScene().getWindow());
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
-    }
+//    public void handleBack() throws IOException {
+//        try {
+//            SceneSwitcher.handleBackToMenu((Stage) cashiersTable.getScene().getWindow());
+//        } catch (IOException e) {
+//            e.printStackTrace();
+//        }
+//    }
 
 
     public void handleAddCashier(){

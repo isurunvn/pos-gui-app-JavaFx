@@ -123,11 +123,11 @@ public class ViewOrdersController implements Initializable {
     }
 }
 
-    public void handleBack() {
-        try {
-            SceneSwitcher.handleBackToMenu((Stage) ordersTable.getScene().getWindow());
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
-    }
+//    public void handleBack() {
+//        try {
+//            SceneSwitcher.handleBackToMenu((Stage) ordersTable.getScene().getWindow());
+//        } catch (IOException e) {
+//            e.printStackTrace();
+//        }
+//    }
 }

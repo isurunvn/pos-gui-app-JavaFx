@@ -144,13 +144,13 @@ public class ViewProductsController implements Initializable {
         }
     }
 
-    public void handleBack() throws IOException {
-        try {
-            SceneSwitcher.handleBackToMenu((Stage) productsTable.getScene().getWindow());
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
-    }
+//    public void handleBack() throws IOException {
+//        try {
+//            SceneSwitcher.handleBackToMenu((Stage) productsTable.getScene().getWindow());
+//        } catch (IOException e) {
+//            e.printStackTrace();
+//        }
+//    }
 
     public void handleAddProduct() {
         try {

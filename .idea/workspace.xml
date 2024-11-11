@@ -6,35 +6,11 @@
   <component name="ChangeListManager">
     <list default="true" id="ba410b64-8627-46eb-b791-6b2cea5ae289" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pos-rad.sql" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/demo/Controllers/AddCashierController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/demo/Controllers/AddCashierController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/demo/Controllers/AddProductController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/demo/Controllers/AddProductController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/demo/Controllers/AddShopController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/demo/Controllers/AddShopController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/demo/Controllers/AdminHeaderController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/demo/Controllers/HeaderController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/demo/Controllers/CreateOrderController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/demo/Controllers/CreateOrderController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/demo/Controllers/DeleteProductController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/demo/Controllers/DeleteProductController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/demo/Controllers/MenuController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/demo/Controllers/MenuController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/example/demo/Controllers/ViewCashiersController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/demo/Controllers/ViewCashiersController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/demo/Controllers/ViewOrderByIDController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/demo/Controllers/ViewOrderByIDController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/example/demo/Controllers/ViewOrdersController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/demo/Controllers/ViewOrdersController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/example/demo/Controllers/ViewProductsController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/demo/Controllers/ViewProductsController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/example/demo/Controllers/ViewShopsController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/demo/Controllers/ViewShopsController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/demo/DAO/CashierDAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/demo/DAO/CashierDAO.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/demo/DAO/OrderDAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/demo/DAO/OrderDAO.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/demo/DAO/ProductDAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/demo/DAO/ProductDAO.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/demo/DAO/ShopDAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/demo/DAO/ShopDAO.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/demo/Models/Cashier.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/demo/Models/Cashier.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/demo/Models/Order.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/demo/Models/Order.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/demo/Utils/SceneSwitcher.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/demo/Utils/SceneSwitcher.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/com/example/demo/addCashier.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/com/example/demo/addCashier.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/com/example/demo/addProduct.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/com/example/demo/addProduct.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/com/example/demo/addShop.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/com/example/demo/addShop.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/com/example/demo/adminHeader.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/com/example/demo/header.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/com/example/demo/adminMenu.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/com/example/demo/adminMenu.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/com/example/demo/cashierMenu.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/com/example/demo/cashierMenu.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/com/example/demo/createOrder.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/com/example/demo/createOrder.fxml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/resources/com/example/demo/viewCashiers.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/com/example/demo/viewCashiers.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/com/example/demo/viewOrderByID.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/com/example/demo/viewOrderByID.fxml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/resources/com/example/demo/viewOrders.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/com/example/demo/viewOrders.fxml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/resources/com/example/demo/viewProducts.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/com/example/demo/viewProducts.fxml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/resources/com/example/demo/viewShops.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/com/example/demo/viewShops.fxml" afterDir="false" />
@@ -55,18 +31,14 @@
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
-  <component name="MavenImportPreferences">
-    <option name="generalSettings">
-      <MavenGeneralSettings>
-        <option name="mavenHomeTypeForPersistence" value="WRAPPER" />
-      </MavenGeneralSettings>
-    </option>
-  </component>
   <component name="ProjectColorInfo">{
   &quot;customColor&quot;: &quot;&quot;,
   &quot;associatedIndex&quot;: 3
 }</component>
   <component name="ProjectId" id="2oMmK9bqwtZhWNwslID14e0PgdG" />
+  <component name="ProjectLevelVcsManager">
+    <ConfirmationsSetting value="1" id="Add" />
+  </component>
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
@@ -81,7 +53,11 @@
     "kotlin-language-version-configured": "true",
     "last_directory_selection": "C:/Users/ASUS TUF/Documents/GitHub/ExpenseMate/src/main/java/com/example/demo",
     "last_opened_file_path": "C:/Users/ASUS TUF/Desktop/ExpenseMate",
-    "project.structure.last.edited": "Modules",
+    "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.tslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "project.structure.last.edited": "Project",
     "project.structure.proportion": "0.15",
     "project.structure.side.proportion": "0.2"
   }
@@ -103,19 +79,6 @@
     </key>
   </component>
   <component name="RunManager">
-    <configuration name="POSApplication" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="com.example.demo.POSApplication" />
-      <module name="demo" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="com.example.demo.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
     <configuration default="true" type="PythonConfigurationType" factoryName="Python">
       <module name="ExpenseMate" />
       <option name="ENV_FILES" value="" />
@@ -137,6 +100,24 @@
       <option name="REDIRECT_INPUT" value="false" />
       <option name="INPUT_FILE" value="" />
       <method v="2" />
+    </configuration>
+    <configuration name="POSApplication" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="com.example.demo.POSApplication" />
+      <module name="pos-gui-app-JavaFx" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.example.demo.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <extension name="software.aws.toolkits.jetbrains.core.execution.JavaAwsConnectionExtension">
+        <option name="credential" />
+        <option name="region" />
+        <option name="useCurrentConnection" value="false" />
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
     </configuration>
     <recent_temporary>
       <list>

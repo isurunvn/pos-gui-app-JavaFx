@@ -29,7 +29,7 @@
 
                      <!-- Product Management Section -->
                <HBox alignment="CENTER_LEFT" spacing="20">
-                   <Button mnemonicParsing="false" onAction="#handleBack" style="-fx-background-color: white; -fx-border-color: grey; -fx-border-radius: 5;" text="Back" />
+<!--                   <Button mnemonicParsing="false" onAction="#handleBack" style="-fx-background-color: white; -fx-border-color: grey; -fx-border-radius: 5;" text="Back" />-->
                    <Label style="-fx-font-size: 20; -fx-font-weight: bold;" text="Product Management" />
                    <Label style="-fx-text-fill: #666;" text="View products" />
                    <HBox alignment="CENTER_RIGHT" HBox.hgrow="ALWAYS">

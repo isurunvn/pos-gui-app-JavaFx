@@ -14,6 +14,7 @@ import javafx.scene.control.ComboBox;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.TextField;
+import javafx.scene.control.Label;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.stage.Stage;
 
@@ -36,6 +37,9 @@ public class CreateOrderController {
     private ObservableList<OrderItem> orderItems;
 
     @FXML
+    private Label totalLabel;
+
+    @FXML
     public void initialize() throws SQLException {
         ProductDAO productDAO = new ProductDAO();
         List<Product> products = productDAO.getAllProducts();
@@ -52,6 +56,7 @@ public class CreateOrderController {
         quantityColumn.setCellValueFactory(new PropertyValueFactory<>("quantity"));
     }
 
+
     @FXML
     public void handleAddItem() throws SQLException {
         String selectedProductName = productComboBox.getValue();
@@ -63,15 +68,26 @@ public class CreateOrderController {
         OrderItem orderItem = new OrderItem(selectedProduct, quantity);
         orderItems.add(orderItem);
 
+        updateTotalLabel();
+
         productComboBox.setValue(null);
         quantityField.clear();
     }
+
+    private void updateTotalLabel() {
+        double total = orderItems.stream()
+                .mapToDouble(item -> item.getProduct().getPrice() * item.getQuantity())
+                .sum();
+        totalLabel.setText("LKR " + String.format("%.2f", total));
+    }
+
 
     @FXML
     public void handleSubmitOrder() throws SQLException {
         UserSessionManager userSessionManager = UserSessionManager.getInstance();
         int cashierId = userSessionManager.getCurrentSession().getUserID();
         Order order = new Order(cashierId); // Assuming cashierId is 1 for simplicity
+
         for (OrderItem item : orderItems) {
             order.addItem(item.getProduct(), item.getQuantity());
         }
@@ -80,12 +96,12 @@ public class CreateOrderController {
         orderDAO.saveOrder(order);
 
         System.out.println("Order saved successfully!");
-        // Close the window after saving the order
 
-        //clear all fields
+        // Clear all fields
         orderItems.clear();
-
+        updateTotalLabel();
     }
+
 
     public void handleBack() {
         try {

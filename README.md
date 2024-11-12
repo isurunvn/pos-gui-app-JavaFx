@@ -4,6 +4,9 @@ A Java and JavaFX-based Point-of-Sale system with comprehensive features for cas
 ## Overview
 This POS system is developed using Java and JavaFX for the graphical user interface (GUI), providing a user-friendly experience for both cashiers and administrators. The system is designed to streamline sales and inventory management processes for efficient business operations.
 
+## Demonstration Video
+Watch our system demonstration: [POS System Demo](https://www.youtube.com/watch?v=33c8Ko5oIWM)
+
 ## User Roles
 
 ### Cashier
